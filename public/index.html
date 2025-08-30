@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Booking</title>
+   <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <!-- Header / Hero Section -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="images/logo.png" alt="Event Booking Logo" class="logo-img">
+        <span class="site-title">Event Booking</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="events.html" class="active">Events</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <div id="user-menu">
+          <span id="user-info"></span>
+          <button id="logout-btn">Logout</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+<!-- Events Slideshow -->
+<main>
+  <section id="events-slideshow">
+    <div class="event-slide">
+      <img src="images/music.png" alt="Music Concert">
+      <a href="events.html" class="book-btn">Book Now</a>
+    </div>
+    <div class="event-slide">
+      <img src="images/food.png" alt="Food Festival">
+      <a href="events.html" class="book-btn">Book Now</a>
+    </div>
+    <div class="event-slide">
+      <img src="images/wedding.png" alt="Wedding Event">
+      <a href="events.html" class="book-btn">Book Now</a>
+    </div>
+    <div class="event-slide">
+      <img src="images/aurora.png" alt="Aurora Festival">
+      <a href="events.html" class="book-btn">Book Now</a>
+    </div>
+  </section>
+</main>
+
+
+
+
+  <!-- Footer -->
+  <footer>
+    <p>Contact us: <a href="mailto:support@eventbooking.com">support@eventbooking.com</a></p>
+    <p>&copy; 2025 Event Booking</p>
+  </footer>
+
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Show logged-in user info
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userInfo = document.getElementById("user-info");
+  const logoutBtn = document.getElementById("logout-btn");
+  const loginLink = document.getElementById("login-link");
+  const signupLink = document.getElementById("signup-link");
+
+  if (user) {
+    userInfo.textContent = `Hello, ${user.username}!`;
+    logoutBtn.style.display = "inline-block";
+    if (loginLink) loginLink.style.display = "none";
+    if (signupLink) signupLink.style.display = "none";
+  }
+
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("user");
+    window.location.href = "index.html";
+  });
+
+  // Slideshow
+  let slideIndex = 0;
+  const slides = document.querySelectorAll("#events-slideshow .event-slide");
+
+  function showSlides() {
+    slides.forEach((slide) => (slide.style.display = "none"));
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].style.display = "block";
+  }
+
+  showSlides();
+  setInterval(showSlides, 4000); // change every 4 seconds
+});
+
+// Make bookEvent global so HTML buttons can access it
+function bookEvent(eventId) {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    alert("Please login to book an event!");
+    window.location.href = "login.html";
+    return;
+  }
+  alert(`Booking successful for event: ${eventId}\nUser: ${user.username}`);
+}
+</script>
+
+</body>
+</html>
