@@ -1,0 +1,243 @@
+/* Reset defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #0d0d0d;
+  color: #eaeaea;
+  line-height: 1.6;
+  background: radial-gradient(circle at top, #1a1a1a, #0d0d0d);
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #141414, #1f1f1f);
+  padding: 1rem 2rem;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+}
+
+.site-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff5f6d;
+  text-shadow: 0 0 8px rgba(255, 95, 109, 0.8);
+}
+
+/* Navigation */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-menu a {
+  color: #eaeaea;
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  transition: 0.3s ease;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background: #ff5f6d;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+#user-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+#user-info {
+  color: #ffc371;
+  font-weight: bold;
+  text-shadow: 0 0 6px rgba(255, 195, 113, 0.8);
+}
+
+#logout-btn {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  color: #1f1f1f;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#logout-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ffc371, #ff5f6d);
+}
+
+main {
+  padding: 3rem 1.5rem;
+}
+
+/* Contact Section */
+.contact-section {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ff5f6d;
+  text-shadow: 0 0 8px rgba(255, 95, 109, 0.8);
+}
+
+.contact-section p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #ddd;
+}
+
+/* Container */
+.contact-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Contact Form */
+.contact-form {
+  flex: 1;
+  min-width: 280px;
+  background: #222;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 95, 109, 0.3);
+}
+
+.contact-form label {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #ff5f6d;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #333;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 95, 109, 0.8);
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background: #ff5f6d;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #ff2e44;
+  box-shadow: 0 0 12px rgba(255, 95, 109, 0.8);
+}
+
+/* Contact Info */
+.contact-info {
+  flex: 1;
+  min-width: 250px;
+  background: #222;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 0 12px rgba(255, 95, 109, 0.3);
+}
+
+.contact-info h3 {
+  margin-bottom: 1rem;
+  color: #ff5f6d;
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+  color: #ddd;
+  font-size: 1.05rem;
+}
+
+
+/* Footer */
+footer {
+  background: #141414;
+  color: #aaa;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-top: 1px solid #333;
+}
+
+footer a {
+  color: #ff5f6d;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+footer a:hover {
+  color: #ffc371;
+  text-shadow: 0 0 6px rgba(255, 195, 113, 0.8);
+}
