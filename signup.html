@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Event Booking</title>
+  <link rel="stylesheet" href="public/css/login.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Create an Account</h2>
+    <form id="signup-form">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+  </div>
+
+  <script>
+    document.getElementById("signup-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const username = e.target.username.value;
+  const email = e.target.email.value;
+  const password = e.target.password.value;
+
+  try {
+    const res = await fetch("/api/auth/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, email, password })
+    });
+
+    const data = await res.json();
+    alert(data.message);
+
+    if (res.ok) window.location.href = "login.html";
+
+  } catch (err) {
+    console.error(err);
+    alert("Signup failed");
+  }
+});
+
+  </script>
+</body>
+</html>
